@@ -6,6 +6,15 @@
 #include "../Robot.h"
 
 
+/*
+ *  Cette fonction permet de faire rouler le robot sur une certaine distance
+ *  Pour l'initialiser on remet tout d'abord les capteurs à zero
+ *  Puis pendant l'éxécution on active les moteurs en fonction de la distance restante à parcourir
+ *
+ *  La fonction est finie quand elle est proche de l'objectif
+ */
+
+
 class PIDLigneDroite: public Command
 {
 public:

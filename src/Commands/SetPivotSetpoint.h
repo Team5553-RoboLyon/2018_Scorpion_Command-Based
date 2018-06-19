@@ -6,6 +6,12 @@
 #include "../Robot.h"
 
 
+/*
+ * Cette commande change la consigne (=setpoint) indiquée au pivot
+ * Elle est "instantanée" et n'a donc ni Execute(), IsFinished(), End() et Interrupted() mais seulement un Initialize()
+ */
+
+
 class SetPivotSetpoint: public frc::Command
 {
 public:

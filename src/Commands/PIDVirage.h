@@ -5,6 +5,14 @@
 #include "Commands/Subsystem.h"
 #include "../Robot.h"
 
+/*
+ *  Cette fonction permet de faire tourner le robot sur un certain angle
+ *  Pour l'initialiser on remet tout d'abord les capteurs à zero
+ *  Puis pendant l'éxécution on active les moteurs en fonction de l'angle restant à parcourir
+ *
+ *  La fonction est finie quand elle est proche de l'objectif
+ */
+
 
 class PIDVirage: public Command
 {

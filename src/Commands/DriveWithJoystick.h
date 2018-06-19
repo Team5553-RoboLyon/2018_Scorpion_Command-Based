@@ -6,6 +6,12 @@
 #include "../Robot.h"
 
 
+/*
+ * Cette commande active les moteurs de la base selon la position du joystick
+ * Pas de fin pour cette commande
+ */
+
+
 class DriveWithJoystick: public frc::Command
 {
 public:

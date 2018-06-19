@@ -4,6 +4,14 @@
 #include "Commands/CommandGroup.h"
 
 
+/*
+ * Cette commande comporte la suite des commandes à éxécuter durant la période autonome
+ * Elle n'est appelée seulement si le robot est au milieu
+ * Cependant elle peut être appelé quand le switch de l'alliance est à droite ou à gauche
+ * On appelle donc la fonction Init() pour initialiser les sens de rotations
+ */
+
+
 class AutoMilieu: public frc::CommandGroup
 {
 public:

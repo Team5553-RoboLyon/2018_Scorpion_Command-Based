@@ -69,6 +69,7 @@ void Robot::AutonomousInit()
 
 void Robot::AutonomousPeriodic()
 {
+	//La autonomousCommand est éxécutée
 	frc::Scheduler::GetInstance()->Run();
 }
 
@@ -81,6 +82,7 @@ void Robot::TeleopInit()
 
 void Robot::TeleopPeriodic()
 {
+	//Les commandes sont appelées selon les boutons du joystick, si elles sont finis, etc...
 	frc::Scheduler::GetInstance()->Run();
 }
 
