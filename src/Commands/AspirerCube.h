@@ -2,6 +2,7 @@
 #define ASPIRERCUBE_H
 
 
+#include "Commands/TimedCommand.h"
 #include "Commands/Subsystem.h"
 #include "../Robot.h"
 

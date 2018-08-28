@@ -1,7 +1,8 @@
 #include "SetPivotSetpoint.h"
 
 
-SetPivotSetpoint::SetPivotSetpoint(double setpoint): Command()
+SetPivotSetpoint::SetPivotSetpoint(double setpoint)
+:frc:: Command("SetPivotSetpoint")
 {
     m_setpoint = setpoint;
 
@@ -11,9 +12,6 @@ SetPivotSetpoint::SetPivotSetpoint(double setpoint): Command()
 
 void SetPivotSetpoint::Initialize()
 {
-	//On active le PID du Pivot (pas forcément utile)
-    Robot::pivot->Enable();
-
     //On change sa consigne
     Robot::pivot->SetSetpoint(m_setpoint);
 }

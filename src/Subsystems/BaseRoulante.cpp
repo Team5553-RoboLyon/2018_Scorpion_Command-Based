@@ -5,7 +5,7 @@
 
 BaseRoulante::BaseRoulante() : frc::Subsystem("BaseRoulante")
 {
-	//On récupère tous les capteurs et controlleurs dont on à besoin
+	//On récupère tous les capteurs et controlleurs dont on a besoin
     baseDroite2 = RobotMap::baseRoulanteBaseDroite2;
     baseDroite1 = RobotMap::baseRoulanteBaseDroite1;
     baseDroite = RobotMap::baseRoulanteBaseDroite;

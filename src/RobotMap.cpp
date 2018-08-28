@@ -33,7 +33,7 @@ void RobotMap::init()
     
     baseRoulanteBaseDroite = std::make_shared<frc::SpeedControllerGroup>(*baseRoulanteBaseDroite1, *baseRoulanteBaseDroite2  );
     lw->AddActuator("BaseRoulante", "BaseDroite", baseRoulanteBaseDroite);
-    baseRoulanteBaseDroite->SetInverted(true);
+    baseRoulanteBaseDroite->SetInverted(false);
     
     baseRoulanteBaseGauche1.reset(new frc::PWMVictorSPX(2));
     lw->AddActuator("BaseRoulante", "BaseGauche1", std::static_pointer_cast<frc::PWMVictorSPX>(baseRoulanteBaseGauche1));
@@ -43,7 +43,7 @@ void RobotMap::init()
     
     baseRoulanteBaseGauche = std::make_shared<frc::SpeedControllerGroup>(*baseRoulanteBaseGauche1, *baseRoulanteBaseGauche2  );
     lw->AddActuator("BaseRoulante", "BaseGauche", baseRoulanteBaseGauche);
-    baseRoulanteBaseDroite->SetInverted(false);
+    baseRoulanteBaseDroite->SetInverted(true);
     
     baseRoulanteGyro.reset(new frc::AnalogGyro(0));
     lw->AddSensor("BaseRoulante", "Gyro", baseRoulanteGyro);
@@ -67,7 +67,7 @@ void RobotMap::init()
     lw->AddActuator("Pince", "Roues", std::static_pointer_cast<frc::PWMVictorSPX>(pinceRoues));
     
     //Warning, the two modules in robot builder are different!
-    pinceVerin.reset(new frc::DoubleSolenoid(2, 2, 3));
+    pinceVerin.reset(new frc::DoubleSolenoid(2, 3));
     lw->AddActuator("Pince", "Verin", pinceVerin);
     
     pivotMoteur.reset(new frc::PWMVictorSPX(5));

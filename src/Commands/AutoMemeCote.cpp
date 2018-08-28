@@ -28,7 +28,7 @@ AutoMemeCote::AutoMemeCote()
 
 	AddSequential(new PIDLigneDroite(340));
 	AddSequential(new PIDVirage(rotation1));
-	AddSequential(new SetPivotSetpoint(Pivot::SWITCH_AVANT));
+	AddParallel(new SetPivotSetpoint(Pivot::SWITCH_AVANT));
 	AddSequential(new PIDLigneDroite(25));
 	AddSequential(new EjecterCube());
 }

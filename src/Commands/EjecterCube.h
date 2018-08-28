@@ -2,6 +2,7 @@
 #define EJECTERCUBE_H
 
 
+#include "Commands/TimedCommand.h"
 #include "Commands/Subsystem.h"
 #include "../Robot.h"
 
@@ -24,7 +25,6 @@ public:
 	void Interrupted() override;
 
 private:
-	const double m_timeout = 0.5;
 };
 
 #endif

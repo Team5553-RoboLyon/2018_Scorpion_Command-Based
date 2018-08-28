@@ -5,7 +5,7 @@
 
 Pince::Pince() : frc::Subsystem("Pince")
 {
-	//On récupère tous les capteurs et controlleurs dont on à besoin
+	//On récupère tous les capteurs et controlleurs dont on a besoin
     roues = RobotMap::pinceRoues;
     verin = RobotMap::pinceVerin;
 
@@ -16,7 +16,7 @@ Pince::Pince() : frc::Subsystem("Pince")
 
 void Pince::InitDefaultCommand()
 {
-	//Aucune  sera appelée si aucune autre commande n'est en cours d'éxécution
+	//Aucune ne sera appelée si aucune autre commande n'est en cours d'exécution
 }
 
 void Pince::Periodic()
@@ -56,7 +56,7 @@ void Pince::Aspirer()
 
 void Pince::Ejecter()
 {
-	roues->Set(-1);
+	roues->Set(-0.5);
 }
 
 void Pince::Stop()

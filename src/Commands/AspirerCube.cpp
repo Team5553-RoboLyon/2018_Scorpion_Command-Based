@@ -1,7 +1,7 @@
 #include "AspirerCube.h"
 
 
-AspirerCube::AspirerCube() : frc::TimedCommand(m_timeout) //Le chrono est lancé
+AspirerCube::AspirerCube() : TimedCommand(1.0)  //Le chrono est lancé
 {
 	//Quand la commande est éxécutée elle stoppe la commande (si il y en a une) qui utilise le même subsystème
 	Requires(Robot::pince.get());
@@ -36,5 +36,5 @@ void AspirerCube::End()
 void AspirerCube::Interrupted()
 {
 	//On prend soin d'arrêter les roues
-	this->End();
+	End();
 }

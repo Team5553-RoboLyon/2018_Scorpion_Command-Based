@@ -1,7 +1,7 @@
 #include "EjecterCube.h"
 
 
-EjecterCube::EjecterCube() : frc::TimedCommand(m_timeout)
+EjecterCube::EjecterCube() : TimedCommand(1.0)
 {
 	//Cette commande n'a pas de fin, elle peut être éxécutée sans arrêt
 	Requires(Robot::pince.get());
