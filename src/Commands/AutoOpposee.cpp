@@ -13,6 +13,10 @@ void AutoOpposee::Init(char coteSwitch)
 
 AutoOpposee::AutoOpposee()
 {
+	Requires(Robot::baseRoulante.get());
+	Requires(Robot::pivot.get());
+	Requires(Robot::pince.get());
+
 	//Suite des commandes à éxécuter :
 	// AddSequential() bloque les commandes qui suivent tant qu'elle n'est pas finie
 	// AddParallel() s'éxécute en même tant que les commandes qui suivent

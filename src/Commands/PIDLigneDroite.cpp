@@ -40,7 +40,7 @@ void PIDLigneDroite::Initialize()
 void PIDLigneDroite::Execute()
 {
 	//On recupère la valeur de l'encodeur pour calculer la distance parcourue
-	distanceParcourueDroite = -(Robot::baseRoulante->GetEncodeurDroit() * r * 2 * M_PI / 263);
+	distanceParcourueDroite = Robot::baseRoulante->GetEncodeurDroit() * r * 2 * M_PI / 263;
 
 	erreurDroite = m_distanceConsigne - distanceParcourueDroite;
 	sommeErreursDroite += erreurDroite;
@@ -48,7 +48,7 @@ void PIDLigneDroite::Execute()
 
 	vitesseDroite = kP * erreurDroite + kI * sommeErreursDroite + kD * differenceErreursDroite;
 
-	Robot::baseRoulante->Drive(vitesseDroite, vitesseDroite);
+	Robot::baseRoulante->Drive(vitesseDroite, -vitesseDroite);
 
 	erreurPrecedenteDroite = erreurDroite;
 }
