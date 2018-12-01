@@ -1,0 +1,4 @@
+See file:///D:/GitHub/Command-Based_Scorpion/build/tmp/linkFrcUserProgramExecutable/output.txt for all output for linkFrcUserProgramExecutable.
+linking frcUserProgram successful.
+
+Finished linkFrcUserProgramExecutable, see full log file:///D:/GitHub/Command-Based_Scorpion/build/tmp/linkFrcUserProgramExecutable/output.txt.

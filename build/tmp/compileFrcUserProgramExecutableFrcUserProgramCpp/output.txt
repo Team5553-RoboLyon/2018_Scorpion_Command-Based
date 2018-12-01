@@ -1,0 +1,62 @@
+See file:///D:/GitHub/Command-Based_Scorpion/build/tmp/compileFrcUserProgramExecutableFrcUserProgramCpp/output.txt for all output for compileFrcUserProgramExecutableFrcUserProgramCpp.
+compiling AjusterPivot.h successful.
+
+compiling ChangerPositionPince.cpp successful.
+
+compiling AutoOpposee.cpp successful.
+
+compiling AspirerCube.h successful.
+
+compiling AspirerCube.cpp successful.
+
+compiling AjusterPivot.cpp successful.
+
+compiling AutoMemeCote.cpp successful.
+
+compiling AutoMilieu.cpp successful.
+
+compiling ChangerVitesse.h successful.
+
+compiling DriveWithJoystick.cpp successful.
+
+compiling DriveWithJoystick.h successful.
+
+compiling ChangerVitesse.cpp successful.
+
+compiling PIDLigneDroite.h successful.
+
+compiling EjecterCube.h successful.
+
+compiling EjecterCube.cpp successful.
+
+compiling PIDLigneDroite.cpp successful.
+
+compiling PIDVirage.h successful.
+
+compiling SetPivotSetpoint.h successful.
+
+compiling PIDVirage.cpp successful.
+
+compiling SetPivotSetpoint.cpp successful.
+
+compiling Robot.h successful.
+
+compiling OI.cpp successful.
+
+compiling BaseRoulante.cpp successful.
+
+compiling Robot.cpp successful.
+
+compiling ChangerPositionPince.h successful.
+
+compiling Pivot.cpp successful.
+D:\GitHub\Command-Based_Scorpion\src\main\cpp\Subsystems\Pivot.cpp: In constructor 'Pivot::Pivot()':
+D:\GitHub\Command-Based_Scorpion\src\main\cpp\Subsystems\Pivot.cpp:17:103: warning: 'void frc::LiveWindow::AddActuator(const llvm::Twine&, const llvm::Twine&, std::shared_ptr<frc::Sendable>)' is deprecated: use Sendable::SetName() instead [-Wdeprecated-declarations]
+     frc::LiveWindow::GetInstance()->AddActuator("Pivot", "PIDSubsystem Controller", GetPIDController());
+                                                                                                       ^
+In file included from D:\GitHub\Command-Based_Scorpion\src\main\cpp\Subsystems\Pivot.cpp:4:0:
+D:\GitHub\Command-Based_Scorpion\build\tmp\expandedArchives\wpilibc-2018.4.1-headers.zip_8477567bc2cef26d871129801025b7ab/LiveWindow/LiveWindow.h:49:8: note: declared here
+   void AddActuator(const llvm::Twine& subsystem, const llvm::Twine& name,
+        ^
+
+Finished compileFrcUserProgramExecutableFrcUserProgramCpp, see full log file:///D:/GitHub/Command-Based_Scorpion/build/tmp/compileFrcUserProgramExecutableFrcUserProgramCpp/output.txt.
