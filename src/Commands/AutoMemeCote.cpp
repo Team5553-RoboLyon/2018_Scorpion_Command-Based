@@ -22,9 +22,9 @@ void AutoMemeCote::Init(char coteSwitch)
 
 AutoMemeCote::AutoMemeCote()
 {
-	Requires(Robot::baseRoulante.get());
-	Requires(Robot::pivot.get());
-	Requires(Robot::pince.get());
+	Requires(&Robot::baseRoulante);
+	Requires(&Robot::pivot);
+	Requires(&Robot::pince);
 
 	//Suite des commandes à éxécuter :
 	// AddSequential() bloque les commandes qui suivent tant qu'elle n'est pas finie

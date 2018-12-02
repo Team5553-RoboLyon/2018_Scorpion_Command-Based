@@ -3,7 +3,6 @@
 
 #include "WPILib.h"
 #include "Commands/Command.h"
-#include "RobotMap.h"
 #include "LiveWindow/LiveWindow.h"
 
 #include "Commands/AutoMilieu.h"
@@ -24,13 +23,13 @@ public:
 	AutoOpposee m_AutoOpposee;
 	frc::Command* autonomousCommand = nullptr;
 
-	static std::unique_ptr<OI> oi;
 	frc::LiveWindow *lw = frc::LiveWindow::GetInstance();
 	frc::SendableChooser<char> positionChooser;
 
-	static std::shared_ptr<BaseRoulante> baseRoulante;
-	static std::shared_ptr<Pince> pince;
-	static std::shared_ptr<Pivot> pivot;
+	static OI oi;
+	static BaseRoulante baseRoulante;
+	static Pince pince;
+	static Pivot pivot;
 
 	void RobotInit() override;
 	void DisabledInit() override;

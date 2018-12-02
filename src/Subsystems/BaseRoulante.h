@@ -7,16 +7,19 @@
 class BaseRoulante: public frc::Subsystem
 {
 private:
-	std::shared_ptr<frc::SpeedController> baseDroite2;
-	std::shared_ptr<frc::SpeedController> baseDroite1;
-	std::shared_ptr<frc::SpeedControllerGroup> baseDroite;
-	std::shared_ptr<frc::SpeedController> baseGauche1;
-	std::shared_ptr<frc::SpeedController> baseGauche2;
-	std::shared_ptr<frc::SpeedControllerGroup> baseGauche;
-	std::shared_ptr<frc::AnalogGyro> gyro;
-	std::shared_ptr<frc::Encoder> encodeurDroit;
-	std::shared_ptr<frc::Encoder> encodeurGauche;
-	std::shared_ptr<frc::DoubleSolenoid> ballshiffter;
+	frc::PWMVictorSPX baseDroite1{0};
+	frc::PWMVictorSPX baseDroite2{1};
+	frc::SpeedControllerGroup baseDroite{baseDroite1, baseDroite2};
+
+	frc::PWMVictorSPX baseGauche1{2};
+	frc::PWMVictorSPX baseGauche2{3};
+	frc::SpeedControllerGroup baseGauche{baseGauche1, baseGauche2};
+
+	frc::AnalogGyro gyro{0};
+	frc::Encoder encodeurDroit{0, 1, true, frc::Encoder::k4X};
+	frc::Encoder encodeurGauche{2, 3, false, frc::Encoder::k4X};
+
+	frc::DoubleSolenoid ballshiffter{0, 0, 1};
 
 	bool vitesse1;
 
