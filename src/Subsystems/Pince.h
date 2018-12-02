@@ -2,13 +2,14 @@
 #define PINCE_H
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
+#include "../Cablage.h"
 
 
 class Pince: public frc::Subsystem
 {
 private:
-	frc::PWMVictorSPX roues{4};
-	frc::DoubleSolenoid verin{2, 3};
+	frc::PWMVictorSPX roues{PWM_ROUES};
+	frc::DoubleSolenoid verin{PCM_VERIN_PINCE_A, PCM_VERIN_PINCE_B};
 
 
 public:
