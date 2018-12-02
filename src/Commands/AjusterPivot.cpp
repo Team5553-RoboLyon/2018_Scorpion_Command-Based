@@ -21,7 +21,7 @@ void AjusterPivot::Initialize()
 void AjusterPivot::Execute()
 {
 	//On récupère la position du POV du joystick
-	pov = Robot::oi.getJoystick1()->GetPOV();
+	pov = Robot::oi.GetJoystick().GetPOV();
 
 	//On augmente ou diminue sa consigne en foncion de la position du joystick (Positions: 0=haut et 180=bas)
 	if(pov == 0)

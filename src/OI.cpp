@@ -19,26 +19,16 @@
 OI::OI()
 {
     // Process operator interface input here.
-    joystick1.reset(new frc::Joystick(0));
     
-    button12.reset(new frc::JoystickButton(joystick1.get(), 12));
-    button12->WhenPressed(new SetPivotSetpoint(Pivot::ECHANGEUR_ARRIERE));
-    button11.reset(new frc::JoystickButton(joystick1.get(), 11));
-    button11->WhenPressed(new SetPivotSetpoint(Pivot::ECHANGEUR_AVANT));
-    button10.reset(new frc::JoystickButton(joystick1.get(), 10));
-    button10->WhenPressed(new SetPivotSetpoint(Pivot::SWITCH_ARRIERE));
-    button9.reset(new frc::JoystickButton(joystick1.get(), 9));
-    button9->WhenPressed(new SetPivotSetpoint(Pivot::SWITCH_AVANT));
-    button8.reset(new frc::JoystickButton(joystick1.get(), 8));
-    button8->WhenPressed(new SetPivotSetpoint(Pivot::MILIEU));
-    button4.reset(new frc::JoystickButton(joystick1.get(), 4));
-    button4->WhenPressed(new ChangerPositionPince());
-    button3.reset(new frc::JoystickButton(joystick1.get(), 3));
-    button3->WhenPressed(new EjecterCube());
-    button2.reset(new frc::JoystickButton(joystick1.get(), 2));
-    button2->WhenPressed(new AspirerCube());
-    button1.reset(new frc::JoystickButton(joystick1.get(), 1));
-    button1->WhenPressed(new ChangerVitesse());
+    button12.WhenPressed(new SetPivotSetpoint(Pivot::ECHANGEUR_ARRIERE));
+    button11.WhenPressed(new SetPivotSetpoint(Pivot::ECHANGEUR_AVANT));
+    button10.WhenPressed(new SetPivotSetpoint(Pivot::SWITCH_ARRIERE));
+    button9.WhenPressed(new SetPivotSetpoint(Pivot::SWITCH_AVANT));
+    button8.WhenPressed(new SetPivotSetpoint(Pivot::MILIEU));
+    button4.WhenPressed(new ChangerPositionPince());
+    button3.WhenPressed(new EjecterCube());
+    button2.WhenPressed(new AspirerCube());
+    button1.WhenPressed(new ChangerVitesse());
 
     // SmartDashboard Buttons
     frc::SmartDashboard::PutData("AutoMemeCote", new AutoMemeCote());
@@ -56,7 +46,7 @@ OI::OI()
     frc::SmartDashboard::PutData("DriveWithJoystick", new DriveWithJoystick());
 }
 
-std::shared_ptr<frc::Joystick> OI::getJoystick1()
+frc::Joystick& OI::GetJoystick()
 {
    return joystick1;
 }
