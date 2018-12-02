@@ -3,13 +3,14 @@
 
 #include "Commands/PIDSubsystem.h"
 #include "WPILib.h"
+#include "../Cablage.h"
 
 
 class Pivot: public frc::PIDSubsystem
 {
  public:
-	frc::PWMVictorSPX moteur{5};
-	frc::Encoder encodeur{4, 5, false, frc::Encoder::k4X};
+	frc::PWMVictorSPX moteur{PWM_PIVOT};
+	frc::Encoder encodeur{DIO_ENCODEUR_PIVOT_A, DIO_ENCODEUR_PIVOT_B, false, frc::Encoder::k4X};
 
 	Pivot();
 	double ReturnPIDInput() override;

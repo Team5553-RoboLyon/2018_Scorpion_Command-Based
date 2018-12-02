@@ -2,24 +2,25 @@
 #define BASEROULANTE_H
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
+#include "../Cablage.h"
 
 
 class BaseRoulante: public frc::Subsystem
 {
 private:
-	frc::PWMVictorSPX baseDroite1{0};
-	frc::PWMVictorSPX baseDroite2{1};
+	frc::PWMVictorSPX baseDroite1{PWM_BASE_DROITE_1};
+	frc::PWMVictorSPX baseDroite2{PWM_BASE_DROITE_2};
 	frc::SpeedControllerGroup baseDroite{baseDroite1, baseDroite2};
 
-	frc::PWMVictorSPX baseGauche1{2};
-	frc::PWMVictorSPX baseGauche2{3};
+	frc::PWMVictorSPX baseGauche1{PWM_BASE_GAUCHE_1};
+	frc::PWMVictorSPX baseGauche2{PWM_BASE_GAUCHE_2};
 	frc::SpeedControllerGroup baseGauche{baseGauche1, baseGauche2};
 
 	frc::AnalogGyro gyro{0};
-	frc::Encoder encodeurDroit{0, 1, true, frc::Encoder::k4X};
-	frc::Encoder encodeurGauche{2, 3, false, frc::Encoder::k4X};
+	frc::Encoder encodeurDroit{DIO_ENCODEUR_DROIT_A, DIO_ENCODEUR_DROIT_B, true, frc::Encoder::k4X};
+	frc::Encoder encodeurGauche{DIO_ENCODEUR_GAUCHE_A, DIO_ENCODEUR_GAUCHE_B, false, frc::Encoder::k4X};
 
-	frc::DoubleSolenoid ballshiffter{0, 0, 1};
+	frc::DoubleSolenoid ballshiffter{PCM_BALLSHIFTER_A, PCM_BALLSHIFTER_B};
 
 	bool vitesse1;
 
