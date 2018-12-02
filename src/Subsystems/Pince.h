@@ -7,8 +7,8 @@
 class Pince: public frc::Subsystem
 {
 private:
-	std::shared_ptr<frc::SpeedController> roues;
-	std::shared_ptr<frc::DoubleSolenoid> verin;
+	frc::PWMVictorSPX roues{4};
+	frc::DoubleSolenoid verin{2, 3};
 
 
 public:

@@ -6,7 +6,7 @@ PIDVirage::PIDVirage(double angleConsigne): Command()
     m_angleConsigne = angleConsigne;
 
     //Quand la commande est éxécutée elle stoppe la commande (si il y en a une) qui utilise le même subsystème
-	Requires(Robot::baseRoulante.get());
+	Requires(&Robot::baseRoulante);
 
     //Pour ne pas avoir d'avertissement :)
     //Ce n'est pas bien d'avoir des variables non-initialisées
@@ -21,7 +21,7 @@ PIDVirage::PIDVirage(double angleConsigne): Command()
 void PIDVirage::Initialize()
 {
 	//On reset les capteurs
-	Robot::baseRoulante->ResetPID();
+	Robot::baseRoulante.ResetPID();
 
 	erreurPrecedente = 0;
 	sommeErreurs = 0;
@@ -31,7 +31,7 @@ void PIDVirage::Initialize()
 void PIDVirage::Execute()
 {
 	//On recupère la valeur du gyroscope
-	angleParcouru = Robot::baseRoulante->GetGyro();
+	angleParcouru = Robot::baseRoulante.GetGyro();
 
 	erreur = m_angleConsigne - angleParcouru;
 	sommeErreurs += erreur;
@@ -39,7 +39,7 @@ void PIDVirage::Execute()
 
 	vitesse = kP * erreur + kI * sommeErreurs + kD * differenceErreurs;
 
-	Robot::baseRoulante->Drive(vitesse, -vitesse);
+	Robot::baseRoulante.Drive(vitesse, -vitesse);
 
 	erreurPrecedente = erreur;
 }
@@ -51,7 +51,7 @@ bool PIDVirage::IsFinished()
 
 void PIDVirage::End()
 {
-	Robot::baseRoulante->Drive(0, 0);
+	Robot::baseRoulante.Drive(0, 0);
 }
 
 void PIDVirage::Interrupted()

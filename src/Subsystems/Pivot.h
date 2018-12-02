@@ -8,8 +8,8 @@
 class Pivot: public frc::PIDSubsystem
 {
  public:
-	std::shared_ptr<frc::SpeedController> moteur;
-	std::shared_ptr<frc::Encoder> encodeur;
+	frc::PWMVictorSPX moteur{5};
+	frc::Encoder encodeur{4, 5, false, frc::Encoder::k4X};
 
 	Pivot();
 	double ReturnPIDInput() override;

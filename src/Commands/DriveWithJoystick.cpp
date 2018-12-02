@@ -4,8 +4,7 @@
 DriveWithJoystick::DriveWithJoystick(): frc::Command()
 {
 	//Quand la commande est éxécutée elle stoppe la commande (si il y en a une) qui utilise le même subsystème
-	Requires(Robot::baseRoulante.get());
-
+	Requires(&Robot::baseRoulante);
     //Pour ne pas avoir d'avertissement :)
     //Ce n'est pas bien d'avoir des variables non-initialisées
 	y = 0;
@@ -23,8 +22,8 @@ void DriveWithJoystick::Initialize()
 void DriveWithJoystick::Execute()
 {
 	//On récupère la position du joystick
-	y = Robot::oi->getJoystick1()->GetY();
-	z = Robot::oi->getJoystick1()->GetZ();
+	y = Robot::oi.getJoystick1()->GetY();
+	z = Robot::oi.getJoystick1()->GetZ();
 
 	//Si les valeurs lues sont trop petites, insignifiantes on les considère comme nulles
 	if (y < 0.2 && y > -0.2)
@@ -41,7 +40,7 @@ void DriveWithJoystick::Execute()
 	vitesseDroite = y + 0.5 * z;
 
 	//On utilise la fonction membre du subsystème BaseRoulante
-	Robot::baseRoulante->Drive(vitesseGauche, vitesseDroite);
+	Robot::baseRoulante.Drive(vitesseGauche, vitesseDroite);
 }
 
 bool DriveWithJoystick::IsFinished()
@@ -53,7 +52,7 @@ bool DriveWithJoystick::IsFinished()
 void DriveWithJoystick::End()
 {
 	//On utilise la fonction membre du subsystème BaseRoulante
-	Robot::baseRoulante->Drive(0,0);
+	Robot::baseRoulante.Drive(0,0);
 }
 
 void DriveWithJoystick::Interrupted()

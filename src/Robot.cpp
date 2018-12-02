@@ -1,19 +1,12 @@
 #include "Robot.h"
 
-std::shared_ptr<BaseRoulante> Robot::baseRoulante;
-std::shared_ptr<Pince> Robot::pince;
-std::shared_ptr<Pivot> Robot::pivot;
-std::unique_ptr<OI> Robot::oi;
+BaseRoulante Robot::baseRoulante;
+Pince Robot::pince;
+Pivot Robot::pivot;
+OI Robot::oi;
 
 void Robot::RobotInit()
 {
-	RobotMap::init();
-
-    baseRoulante.reset(new BaseRoulante());
-    pince.reset(new Pince());
-    pivot.reset(new Pivot());
-	oi.reset(new OI());
-
 	//Choix de la position de départ sur le SmartDashboard
 	positionChooser.AddDefault("Depart milieu", 'M');
 	positionChooser.AddObject("Depart gauche", 'L');
@@ -21,8 +14,8 @@ void Robot::RobotInit()
 	frc::SmartDashboard::PutData("Auto Modes", &positionChooser);
 
 	//Initialisation de la pneumatique
-	baseRoulante->ActiverVitesse1();
-	pince->Fermer();
+	baseRoulante.ActiverVitesse1();
+	pince.Fermer();
 }
 
 void Robot::DisabledInit()
@@ -38,8 +31,8 @@ void Robot::DisabledPeriodic()
 void Robot::AutonomousInit()
 {
 	//Initialisation de la pneumatique (2ème fois pour être sûr)
-	baseRoulante->ActiverVitesse1();
-	pince->Fermer();
+	baseRoulante.ActiverVitesse1();
+	pince.Fermer();
 
 	//On récupère la position du robot sur le SmartDashboard et celle du switch grâce au FMS
 	char positonSwitch = frc::DriverStation::GetInstance().GetGameSpecificMessage()[0];

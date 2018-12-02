@@ -1,5 +1,4 @@
 #include "Pivot.h"
-#include "../RobotMap.h"
 #include "SmartDashboard/SmartDashboard.h"
 #include "LiveWindow/LiveWindow.h"
 #include "../Commands/AjusterPivot.h"
@@ -16,10 +15,6 @@ Pivot::Pivot() : PIDSubsystem("Pivot", 0.003, 0.00000001, 0.000001)
 {
     frc::LiveWindow::GetInstance()->AddActuator("Pivot", "PIDSubsystem Controller", GetPIDController());
 
-	//On récupère tous les capteurs et controlleurs dont on a besoin
-    moteur = RobotMap::pivotMoteur;
-    encodeur = RobotMap::pivotEncodeur;
-
     //Initialisation et démarrage du PIDController
     GetPIDController()->SetContinuous(false);
 	SetAbsoluteTolerance(20);
@@ -30,12 +25,12 @@ Pivot::Pivot() : PIDSubsystem("Pivot", 0.003, 0.00000001, 0.000001)
 
 double Pivot::ReturnPIDInput()
 {
-	return encodeur->Get();
+	return encodeur.Get();
 }
 
 void Pivot::UsePIDOutput(double output)
 {
-    moteur->PIDWrite(output);
+    moteur.PIDWrite(output);
 }
 
 void Pivot::InitDefaultCommand()
