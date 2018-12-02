@@ -13,7 +13,7 @@ const double Pivot::SWITCH_ARRIERE = -300;
 
 Pivot::Pivot() : PIDSubsystem("Pivot", 0.003, 0.00000001, 0.000001)
 {
-    frc::LiveWindow::GetInstance()->AddActuator("Pivot", "PIDSubsystem Controller", GetPIDController());
+    GetPIDController()->SetName("Pivot", "PIDSubsystem Controller");
 
     //Initialisation et démarrage du PIDController
     GetPIDController()->SetContinuous(false);
@@ -21,6 +21,9 @@ Pivot::Pivot() : PIDSubsystem("Pivot", 0.003, 0.00000001, 0.000001)
 	SetInputRange(-700, 700);
 	SetSetpoint(0);
 	Enable();
+
+	AddChild("Moteur", moteur);
+	AddChild("Encodeur", encodeur);
 }
 
 double Pivot::ReturnPIDInput()

@@ -7,6 +7,11 @@ OI Robot::oi;
 
 void Robot::RobotInit()
 {
+	// Show what command your subsystem is running on the SmartDashboard
+	frc::SmartDashboard::PutData(&baseRoulante);
+	frc::SmartDashboard::PutData(&pince);
+	frc::SmartDashboard::PutData(&pivot);
+
 	//Choix de la position de départ sur le SmartDashboard
 	positionChooser.AddDefault("Depart milieu", 'M');
 	positionChooser.AddObject("Depart gauche", 'L');
