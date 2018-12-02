@@ -16,7 +16,7 @@ private:
 	frc::PWMVictorSPX baseGauche2{PWM_BASE_GAUCHE_2};
 	frc::SpeedControllerGroup baseGauche{baseGauche1, baseGauche2};
 
-	frc::AnalogGyro gyro{0};
+	frc::ADXRS450_Gyro gyro;
 	frc::Encoder encodeurDroit{DIO_ENCODEUR_DROIT_A, DIO_ENCODEUR_DROIT_B, true, frc::Encoder::k4X};
 	frc::Encoder encodeurGauche{DIO_ENCODEUR_GAUCHE_A, DIO_ENCODEUR_GAUCHE_B, false, frc::Encoder::k4X};
 
