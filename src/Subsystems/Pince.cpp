@@ -7,6 +7,9 @@ Pince::Pince() : frc::Subsystem("Pince")
     //Pour ne pas avoir d'avertissement :)
     //Ce n'est pas bien d'avoir des variables non-initialisées
     pinceOuverte = false;
+
+    AddChild("Roues", roues);
+    AddChild("Verin", verin);
 }
 
 void Pince::InitDefaultCommand()

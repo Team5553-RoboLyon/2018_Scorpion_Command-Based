@@ -10,6 +10,20 @@ BaseRoulante::BaseRoulante() : frc::Subsystem("BaseRoulante")
 
     baseDroite.SetInverted(false);
     baseDroite.SetInverted(true);
+
+    AddChild("Base Droite 1", baseDroite1);
+    AddChild("Base Droite 2", baseDroite2);
+    AddChild("Base Droite", baseDroite);
+
+    AddChild("Base Gauche 1", baseGauche1);
+    AddChild("Base Gauche 2", baseGauche2);
+    AddChild("Base Gauche", baseGauche);
+
+    AddChild("Gyro", gyro);
+    AddChild("Encodeur Droit", encodeurDroit);
+    AddChild("Encodeur Gauche", encodeurGauche);
+
+    AddChild("Ballshiffter", ballshiffter);
 }
 
 void BaseRoulante::InitDefaultCommand()
