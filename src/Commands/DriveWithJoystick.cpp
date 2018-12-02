@@ -22,8 +22,8 @@ void DriveWithJoystick::Initialize()
 void DriveWithJoystick::Execute()
 {
 	//On récupère la position du joystick
-	y = Robot::oi.getJoystick1()->GetY();
-	z = Robot::oi.getJoystick1()->GetZ();
+	y = Robot::oi.GetJoystick().GetY();
+	z = Robot::oi.GetJoystick().GetZ();
 
 	//Si les valeurs lues sont trop petites, insignifiantes on les considère comme nulles
 	if (y < 0.2 && y > -0.2)
