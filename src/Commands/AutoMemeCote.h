@@ -15,8 +15,7 @@
 class AutoMemeCote: public frc::CommandGroup
 {
 public:
-	void Init(char coteSwitch);
-	AutoMemeCote();
+	AutoMemeCote(char coteSwitch);
 
 private:
 	double rotation1;

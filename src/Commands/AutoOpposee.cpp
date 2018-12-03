@@ -6,12 +6,8 @@
 #include "PIDVirage.h"
 #include "SetPivotSetpoint.h"
 
-void AutoOpposee::Init(char coteSwitch)
-{
 
-}
-
-AutoOpposee::AutoOpposee()
+AutoOpposee::AutoOpposee(char coteSwitch)
 {
 	Requires(&Robot::baseRoulante);
 	Requires(&Robot::pivot);

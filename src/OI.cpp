@@ -31,9 +31,6 @@ OI::OI()
     button1.WhenPressed(new ChangerVitesse());
 
     // SmartDashboard Buttons
-    frc::SmartDashboard::PutData("AutoMemeCote", new AutoMemeCote());
-    frc::SmartDashboard::PutData("AutoOpposee", new AutoOpposee());
-    frc::SmartDashboard::PutData("AutoMilieu", new AutoMilieu());
     frc::SmartDashboard::PutData("SetPivotSetpoint: milieu", new SetPivotSetpoint(Pivot::MILIEU));
     frc::SmartDashboard::PutData("SetPivotSetpoint: echangeurAvant", new SetPivotSetpoint(Pivot::ECHANGEUR_AVANT));
     frc::SmartDashboard::PutData("SetPivotSetpoint: echangeurArriere", new SetPivotSetpoint(Pivot::ECHANGEUR_ARRIERE));

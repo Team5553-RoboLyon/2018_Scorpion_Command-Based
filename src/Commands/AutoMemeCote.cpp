@@ -6,10 +6,14 @@
 #include "PIDVirage.h"
 #include "SetPivotSetpoint.h"
 
-void AutoMemeCote::Init(char coteSwitch)
-{
-	//Initialisation des sens de rotations en fonction de la position du switch
 
+AutoMemeCote::AutoMemeCote(char coteSwitch)
+{
+	Requires(&Robot::baseRoulante);
+	Requires(&Robot::pivot);
+	Requires(&Robot::pince);
+
+	//Initialisation des sens de rotations en fonction de la position du switch
 	if(coteSwitch == 'L')
 	{
 		rotation1 = 90;
@@ -18,13 +22,6 @@ void AutoMemeCote::Init(char coteSwitch)
 	{
 		rotation1 = -90;
 	}
-}
-
-AutoMemeCote::AutoMemeCote()
-{
-	Requires(&Robot::baseRoulante);
-	Requires(&Robot::pivot);
-	Requires(&Robot::pince);
 
 	//Suite des commandes à éxécuter :
 	// AddSequential() bloque les commandes qui suivent tant qu'elle n'est pas finie

@@ -18,9 +18,9 @@
 class Robot : public frc::TimedRobot
 {
 public:
-	AutoMilieu m_AutoMilieu;
-	AutoMemeCote m_AutoMemeCote;
-	AutoOpposee m_AutoOpposee;
+	AutoMilieu* m_AutoMilieu;
+	AutoMemeCote* m_AutoMemeCote;
+	AutoOpposee* m_AutoOpposee;
 	frc::Command* autonomousCommand = nullptr;
 
 	frc::LiveWindow *lw = frc::LiveWindow::GetInstance();

@@ -48,7 +48,7 @@ void PIDLigneDroite::Execute()
 
 	vitesseDroite = kP * erreurDroite + kI * sommeErreursDroite + kD * differenceErreursDroite;
 
-	Robot::baseRoulante.Drive(vitesseDroite, -vitesseDroite);
+	Robot::baseRoulante.Drive(-vitesseDroite, -vitesseDroite);
 
 	erreurPrecedenteDroite = erreurDroite;
 }

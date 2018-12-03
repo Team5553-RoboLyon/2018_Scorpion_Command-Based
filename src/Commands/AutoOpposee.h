@@ -15,8 +15,7 @@
 class AutoOpposee: public frc::CommandGroup
 {
 public:
-	void Init(char coteSwitch);
-	AutoOpposee();
+	AutoOpposee(char coteSwitch);
 
 private:
 

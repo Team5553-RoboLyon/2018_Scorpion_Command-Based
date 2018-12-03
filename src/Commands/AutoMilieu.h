@@ -15,8 +15,7 @@
 class AutoMilieu: public frc::CommandGroup
 {
 public:
-	void Init(char coteSwitch);
-	AutoMilieu();
+	AutoMilieu(char coteSwitch);
 
 private:
 	double rotation1et8, rotation2et7, rotation3et5, rotation4et6;

@@ -43,21 +43,22 @@ void Robot::AutonomousInit()
 	char positonSwitch = frc::DriverStation::GetInstance().GetGameSpecificMessage()[0];
 	char positionRobot = positionChooser.GetSelected();
 
+	m_AutoMilieu = new AutoMilieu(positonSwitch);
+	m_AutoMemeCote = new AutoMemeCote(positonSwitch);
+	m_AutoOpposee = new AutoOpposee(positonSwitch);
+
 	//Séléction de l'auto qui correspond et initialisation pour gérer de quel côté elle part
 	if(positionRobot == 'M')
 	{
-		m_AutoMilieu.Init(positonSwitch);
-		autonomousCommand = &m_AutoMilieu;
+		autonomousCommand = m_AutoMilieu;
 	}
 	else if(positonSwitch == positionRobot)
 	{
-		m_AutoMemeCote.Init(positonSwitch);
-		autonomousCommand = &m_AutoMemeCote;
+		autonomousCommand = m_AutoMemeCote;
 	}
 	else
 	{
-		m_AutoOpposee.Init(positonSwitch);
-		autonomousCommand = &m_AutoOpposee;
+		autonomousCommand = m_AutoOpposee;
 	}
 
 	//Lancement de l'auto

@@ -6,10 +6,14 @@
 #include "PIDVirage.h"
 #include "SetPivotSetpoint.h"
 
-void AutoMilieu::Init(char coteSwitch)
-{
-	//Initialisation des sens de rotations en fonction de la position du switch
 
+AutoMilieu::AutoMilieu(char coteSwitch)
+{
+	Requires(&Robot::baseRoulante);
+	Requires(&Robot::pivot);
+	Requires(&Robot::pince);
+
+	//Initialisation des sens de rotations en fonction de la position du switch
 	if (coteSwitch == 'L')
 	{
 		rotation1et8 = -35;
@@ -24,13 +28,6 @@ void AutoMilieu::Init(char coteSwitch)
 		rotation3et5 = -74;
 		rotation4et6 = 83;
 	}
-}
-
-AutoMilieu::AutoMilieu()
-{
-	Requires(&Robot::baseRoulante);
-	Requires(&Robot::pivot);
-	Requires(&Robot::pince);
 
 	//Suite des commandes à éxécuter :
 	// AddSequential() bloque les commandes qui suivent tant qu'elle n'est pas finie
