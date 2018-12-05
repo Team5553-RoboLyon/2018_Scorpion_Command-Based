@@ -43,22 +43,21 @@ void Robot::AutonomousInit()
 	char positonSwitch = frc::DriverStation::GetInstance().GetGameSpecificMessage()[0];
 	char positionRobot = positionChooser.GetSelected();
 
-	m_AutoMilieu = new AutoMilieu(positonSwitch);
-	m_AutoMemeCote = new AutoMemeCote(positonSwitch);
-	m_AutoOpposee = new AutoOpposee(positonSwitch);
-
 	//Séléction de l'auto qui correspond et initialisation pour gérer de quel côté elle part
 	if(positionRobot == 'M')
 	{
-		autonomousCommand = m_AutoMilieu;
+		m_AutoMilieu.reset(new AutoMilieu(positonSwitch));
+		autonomousCommand.reset(m_AutoMilieu.release());
 	}
 	else if(positonSwitch == positionRobot)
 	{
-		autonomousCommand = m_AutoMemeCote;
+		m_AutoMemeCote.reset(new AutoMemeCote(positonSwitch));
+		autonomousCommand.reset(m_AutoMemeCote.release());
 	}
 	else
 	{
-		autonomousCommand = m_AutoOpposee;
+		m_AutoOpposee.reset(new AutoOpposee(positonSwitch));
+		autonomousCommand.reset(m_AutoOpposee.release());
 	}
 
 	//Lancement de l'auto
@@ -76,7 +75,10 @@ void Robot::TeleopInit()
 {
 	//Arrêt de l'auto si elle était active
 	if (autonomousCommand != nullptr)
+	{
 		autonomousCommand->Cancel();
+		autonomousCommand.release();
+	}
 }
 
 void Robot::TeleopPeriodic()

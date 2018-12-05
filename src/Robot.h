@@ -18,10 +18,10 @@
 class Robot : public frc::TimedRobot
 {
 public:
-	AutoMilieu* m_AutoMilieu;
-	AutoMemeCote* m_AutoMemeCote;
-	AutoOpposee* m_AutoOpposee;
-	frc::Command* autonomousCommand = nullptr;
+	std::unique_ptr<AutoMilieu> m_AutoMilieu;
+	std::unique_ptr<AutoMemeCote> m_AutoMemeCote;
+	std::unique_ptr<AutoOpposee> m_AutoOpposee;
+	std::unique_ptr<frc::Command> autonomousCommand{nullptr};
 
 	frc::LiveWindow *lw = frc::LiveWindow::GetInstance();
 	frc::SendableChooser<char> positionChooser;
