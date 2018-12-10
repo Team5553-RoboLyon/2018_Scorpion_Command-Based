@@ -8,7 +8,7 @@ BaseRoulante::BaseRoulante() : frc::Subsystem("BaseRoulante")
     //Ce n'est pas bien d'avoir des variables non-initialisées
     vitesse1 = true;
 
-    baseDroite.SetInverted(false);
+    baseGauche.SetInverted(false);
     baseDroite.SetInverted(true);
 
     AddChild("Base Droite 1", baseDroite1);
